@@ -297,7 +297,7 @@ function Invitation() {
           }`}
           style={{
             background:
-              "linear-gradient(180deg, rgba(74,51,18,0.72) 0%, rgba(110,77,25,0.28) 45%, rgba(74,51,18,0.05) 65%, rgba(74,51,18,0.55) 100%)",
+              "linear-gradient(180deg, rgba(40,26,8,0.85) 0%, rgba(55,36,12,0.65) 40%, rgba(30,19,6,0.50) 65%, rgba(50,33,11,0.68) 100%)",
           }}
         />
         {isHeroTextVisible && <LightRain />}
@@ -334,42 +334,47 @@ function Invitation() {
 
         {/* Names & Wedding Details revealed directly during couple video and remaining for content */}
         <div
-          className={`relative z-20 px-6 text-center transition-opacity duration-700 ${
+          className={`relative z-20 mx-auto flex w-full max-w-lg flex-col items-center px-4 text-center transition-opacity duration-700 ${
             isHeroTextVisible ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
-          style={{ paddingTop: "calc(env(safe-area-inset-top) + 10svh)" }}
+          style={{ paddingTop: "calc(env(safe-area-inset-top, 24px) + 2svh)" }}
         >
           <p
-            className={`font-body text-[0.58rem] uppercase tracking-[0.42em] text-hall-light/85 reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
+            className={`font-body text-[0.6rem] uppercase tracking-[0.42em] text-hall-glow/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
             style={{ transitionDelay: "300ms" }}
           >
             Shubh Vivah
           </p>
           <h1
-            className={`mt-5 font-display text-[clamp(3rem,17vw,5rem)] font-light leading-[0.95] gold-text reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
-            style={{ transitionDelay: "900ms" }}
+            className={`mt-2 font-display text-[clamp(2.5rem,11.5vw,4.2rem)] font-light leading-[0.92] gold-text drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
+            style={{ transitionDelay: "700ms" }}
           >
             {wedding.groom}
-            <span className="block font-title text-[0.32em] tracking-[0.3em] text-hall-light/90 my-3">
+            <span className="block font-title text-[0.32em] tracking-[0.28em] text-hall-light/90 my-1">
               &amp;
             </span>
             {wedding.bride}
           </h1>
           <div
             className={`reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
+            style={{ transitionDelay: "1000ms" }}
+          >
+            <Ornament className="mt-2 opacity-90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" width={150} />
+          </div>
+
+          {/* Royal Date & Invitation Plaque - positioned in upper clear zone with high contrast */}
+          <div
+            className={`mx-auto mt-2.5 max-w-[21.5rem] rounded-2xl border border-hall-glow/50 bg-[#160d03]/90 px-5 py-3.5 backdrop-blur-md shadow-[0_12px_36px_rgba(0,0,0,0.85),0_0_20px_rgba(233,200,121,0.15)] ring-1 ring-white/10 reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
             style={{ transitionDelay: "1200ms" }}
           >
-            <Ornament className="mt-6" width={200} />
-            <p className="mt-4 font-title text-[0.82rem] tracking-[0.36em] text-hall-light">
+            <p className="font-title text-[0.85rem] font-medium tracking-[0.38em] text-hall-glow drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
               {wedding.shortDate}
             </p>
+            <div className="mx-auto my-2 h-px w-20 bg-gradient-to-r from-transparent via-hall-glow/70 to-transparent" />
+            <p className="font-display text-[0.92rem] italic leading-relaxed text-[#fff8ee] drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)]">
+              {wedding.invitationLine}
+            </p>
           </div>
-          <p
-            className={`mx-auto mt-5 max-w-[19rem] font-display text-[1.02rem] italic leading-relaxed text-ivory/90 reveal ${isHeroTextVisible ? "reveal-on" : ""}`}
-            style={{ transitionDelay: "1500ms" }}
-          >
-            {wedding.invitationLine}
-          </p>
         </div>
 
         <div
